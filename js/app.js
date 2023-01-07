@@ -57,7 +57,7 @@ function checkLogin(redirectOnRec, redirectOnUnrec){
         }
     } else {
         if (redirectOnUnrec) {
-            window.location = '../signin.html'
+            window.location = 'https://cloudeconomics.auth.us-east-1.amazoncognito.com/oauth2/authorize?client_id=ei5gne42deoph24kkvaucp5mq&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fmain.d1vyhq931i0cwf.amplifyapp.com%2F'
         } 
     }
 }
