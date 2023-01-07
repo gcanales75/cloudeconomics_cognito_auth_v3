@@ -13,7 +13,7 @@ function checkLogin(redirectOnRec, redirectOnUnrec){
     if (cognitoUser != null) {
       console.log('user exists');
       if (redirectOnRec) {
-        window.location = './index.html';
+        //window.location = './index.html';
       } else {
         $('#body').css({'visibility':'visible'});
       }
