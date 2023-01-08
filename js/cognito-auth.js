@@ -1,34 +1,8 @@
 /* (1) For AWS Cognito Authentication */
-import {CognitoAuth} from 'amazon-cognito-auth-js';
 
 var userPoolId = 'us-east-1_URs9xI1kz'
 var clientId = 'ei5gne42deoph24kkvaucp5mq'
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
-
-
-        var authData = {
-        UserPoolId: 'userPoolId',
-        ClientId: 'clientId',
-        RedirectUriSignIn : 'https://examole.com/login',
-        RedirectUriSignOut : 'https://example.com/logout',
-        AppWebDomain : 'example.com',
-        TokenScopesArray: ['email']
-        };
-        var auth = new CognitoAuth(authData);
-        auth.userhandler = {
-        onSuccess: function(result) {
-          //you can do something here
-        },
-        onFailure: function(err) {
-            // do somethig if fail
-        }
-    };
-
-    //get the current URL with the Hash that contain Cognito Tokens tokens    
-    var curUrl = window.location.href;
-
-    //This parse the hash and set the user on the local storage. 
-    auth.parseCognitoWebResponse(curUrl);
 
 console.log('Loading Cognito auth...');
 
