@@ -1,10 +1,10 @@
 /* (1) For AWS Cognito Authentication */
+// When using loose Javascript files:
+var CognitoAuth = AmazonCognitoIdentity.CognitoAuth;
 
 var userPoolId = 'us-east-1_URs9xI1kz'
 var clientId = 'ei5gne42deoph24kkvaucp5mq'
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
-var USER_POOL_ID = 'us-east-1_URs9xI1kz'
-var APP_CLIENT_ID = 'ei5gne42deoph24kkvaucp5mq'
 
 console.log('Loading Cognito auth...');
 
@@ -12,23 +12,11 @@ var poolData = { UserPoolId : userPoolId,
   ClientId : clientId
 };
 
-console.log(poolData);
-
 var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 var currentUser = userPool.getCurrentUser();
 
 console.log(userPool)
-
-userPool.storage.sync(function(err, result) {
-  if (err) {
-  } else if (result === 'SUCCESS') {
-    var cognitoUser = userPool.getCurrentUser();
-    // Continue with steps in Use case 16
-  }
-});
-
-console.log(cognitoUser);
-
+var currentUser = userPool.getCurrentUser();
 
 /*
   function login(){
@@ -42,7 +30,7 @@ console.log(cognitoUser);
       console.log("Username:",username, "Password:",$('#password').val())
   
       var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
-  
+
       var userData = {
           Username : username,
           Pool : userPool
