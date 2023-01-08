@@ -1,6 +1,7 @@
 /* (1) For AWS Cognito Authentication */
 var userPoolId = 'us-east-1_URs9xI1kz'
 var clientId = 'ei5gne42deoph24kkvaucp5mq'
+var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 
 console.log('Loading Cognito auth...');
 
@@ -11,8 +12,10 @@ var poolData = { UserPoolId : userPoolId,
   console.log(poolData)
 
   var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+  var cognitoUser = userPool.getCurrentUser();
   
   console.log(userPool)
+  console.log(cognitoUser)
 
 /*
   function login(){
@@ -52,7 +55,7 @@ var poolData = { UserPoolId : userPoolId,
       });
   }
   console.log(userPool)
-  
+
 */
   function checkLogin(redirectOnRec, redirectOnUnrec){
   
