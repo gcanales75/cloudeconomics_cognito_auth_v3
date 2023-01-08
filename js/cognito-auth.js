@@ -12,7 +12,7 @@ var poolData = { UserPoolId : userPoolId,
   ClientId : clientId
 };
   
-  console.log(poolData)
+  console.log(poolData);
 
   var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
   var currentUser = userPool.getCurrentUser();
@@ -21,13 +21,13 @@ var poolData = { UserPoolId : userPoolId,
 
 function getCurrentUser() {
   const userPool = new CognitoUserPool({
-    UserPoolId: config.cognito.USER_POOL_ID,
-    ClientId: config.cognito.APP_CLIENT_ID
+    UserPoolId: userPoolId,
+    ClientId: clientId
   });
   return userPool.getCurrentUser();
 }
 
-console.log(getCurrentUser)
+console.log(getCurrentUser);
 
 
 /*
