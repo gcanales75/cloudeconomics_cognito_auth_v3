@@ -8,8 +8,13 @@ var poolData = { UserPoolId : userPoolId,
   ClientId : clientId
   };
   
+  console.log(poolData)
+
   var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
   
+  console.log(userPool)
+
+/*
   function login(){
       var username = $('#username').val();
       var authenticationData = {
@@ -46,7 +51,9 @@ var poolData = { UserPoolId : userPoolId,
           },
       });
   }
+  console.log(userPool)
   
+*/
   function checkLogin(redirectOnRec, redirectOnUnrec){
   
       var cognitoUser = userPool.getCurrentUser();
