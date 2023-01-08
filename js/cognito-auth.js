@@ -11,23 +11,23 @@ console.log('Loading Cognito auth...');
 var poolData = { UserPoolId : userPoolId,
   ClientId : clientId
 };
-  
-  console.log(poolData);
 
-  var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
-  var currentUser = userPool.getCurrentUser();
-  
-  console.log(userPool)
+console.log(poolData);
 
-function getCurrentUser() {
-  const userPool = new CognitoUserPool({
-    UserPoolId: userPoolId,
-    ClientId: clientId
-  });
-  return userPool.getCurrentUser();
-}
+var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+var currentUser = userPool.getCurrentUser();
 
-console.log(getCurrentUser);
+console.log(userPool)
+
+userPool.storage.sync(function(err, result) {
+  if (err) {
+  } else if (result === 'SUCCESS') {
+    var cognitoUser = userPool.getCurrentUser();
+    // Continue with steps in Use case 16
+  }
+});
+
+console.log(cognitoUser);
 
 
 /*
